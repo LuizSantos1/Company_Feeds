@@ -67,4 +67,9 @@ class Company_Feeds_Model_Feed_Type extends RocketWeb_ShoppingFeeds_Model_Feed_T
         return $types;
     }
 
+    public function getLabel($type)
+    {
+        $options = self::getOptionArray();
+        return array_key_exists($type, $options) ? $options[$type] : ucwords(str_replace('_', '', $options[$type]));
+    }
 }
